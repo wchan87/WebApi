@@ -68,6 +68,7 @@ namespace WebApi
                 // RoutePrefix property to an empty string:
                 c.RoutePrefix = string.Empty;
             });
+            // TODO consider how to load swagger.json from static file
 
             app.UseHttpsRedirection();
 

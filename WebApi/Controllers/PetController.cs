@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Models;
 
@@ -36,6 +37,51 @@ namespace WebApi.Controllers
         {
             // TODO use Dapper to update Pet
             return body;
+        }
+
+        [HttpGet("findByStatus")]
+        [Consumes("application/json", "application/xml")]
+        [Produces("application/json", "application/xml")]
+        public IEnumerable<Pet> FindPetsByStatus(IEnumerable<Pet.PetStatus> status)
+        {
+            // TODO use Dapper to return Pets
+            return null;
+        }
+
+        [HttpGet("findByTags")]
+        [Consumes("application/json", "application/xml")]
+        [Produces("application/json", "application/xml")]
+        public IEnumerable<Pet> FindPetsByTags(IEnumerable<string> tags)
+        {
+            // TODO use Dapper to return Pets
+            return null;
+        }
+
+        [HttpGet("{petId}")]
+        [Consumes("application/json", "application/xml")]
+        [Produces("application/json", "application/xml")]
+        public Pet GetPet(long petId)
+        {
+            // TODO use Dapper to return Pet
+            return null;
+        }
+
+        [HttpPost("{petId}")]
+        [Consumes("application/json", "application/xml")]
+        [Produces("application/json", "application/xml")]
+        public Pet UpdatePetWithForm(long petId, [FromForm] Pet pet)
+        {
+            // TODO use Dapper to return Pet
+            return null;
+        }
+
+        [HttpDelete("{petId}")]
+        [Consumes("application/json", "application/xml")]
+        [Produces("application/json", "application/xml")]
+        public Pet DeletePet(long petId)
+        {
+            // TODO use Dapper to return Pet
+            return null;
         }
     }
 }

@@ -1,3 +1,4 @@
+using Serilog;
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -56,6 +57,9 @@ namespace WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // "The middleware will not time or log components that appear before it in the pipeline"
+            app.UseSerilogRequestLogging();
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();

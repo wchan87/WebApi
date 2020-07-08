@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  db:
+    container_name: "WebApi-MSSQLServer"
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Passw0rd!"
+      ACCEPT_EULA: "Y"
+  kibana:
+    container_name: "WebApi-Kibana"
+    image: "docker.elastic.co/kibana/kibana:7.8.0"
+    ports:
+      - "5601:5601"    
+  elasticsearch:
+    container_name: "WebApi-Elasticsearch"
+    image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.0"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      discovery.type: "single-node"
+    volumes:
+      - "./elastic_data:/usr/share/elasticsearch/data"
